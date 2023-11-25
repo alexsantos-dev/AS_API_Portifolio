@@ -2,7 +2,7 @@ import ProjetoModel from "../models/projeto.model.mjs"
 
 
 class ProjetoService {
-    async darLike(projetoId, usuarioAnonimoId) {
+    async like(projetoId, usuarioAnonimoId) {
         const projeto = await ProjetoModel.findById(projetoId);
 
         const index = projeto.likes.findIndex(like => like.usuarioAnonimoId === usuarioAnonimoId);
