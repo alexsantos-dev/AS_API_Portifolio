@@ -2,11 +2,11 @@
   "name": "as_api_portifolio",
   "version": "1.0.0",
   "description": "API backend para um portfólio pessoal usando a stack MERN (MongoDB, Express.js, React.js, Node.js). Permite a criação, visualização e interação com meus projetos pessoais, incluindo as funcionalidades de  likes e compartilhamento de forma anônima. Os projetos são organizados por filtros de paginação, como mais recentes e mais relevantes.",
-  "main": "index.js",
+  "main": "index.mjs",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node index.mjs",
+    "dev": "nodemon index.mjs"
   },
   "keywords": [],
   "author": "Alex Santos",

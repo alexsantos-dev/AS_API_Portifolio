@@ -1,5 +1,5 @@
 import express from "express";
-import conectDatabase from "./src/config/database.js";
+import conectDatabase from "./src/config/database.mjs";
 import dotenv from "dotenv"
 
 dotenv.config()
