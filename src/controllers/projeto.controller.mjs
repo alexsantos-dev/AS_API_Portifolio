@@ -51,6 +51,32 @@ class ProjetoController {
         }
     }
 
+    async atualizarProjeto(req, res) {
+
+        try {
+            const { projectId } = req.params
+            const { titulo, resumo, banner, tecnologiasUsadas } = req.body
+
+            if (!titulo && !resumo && !banner && !tecnologiasUsadas) {
+                res.status(400).send({ message: "Envie pelo menos um campo para efetuar a atualização." })
+            }
+
+            const projetoAtualizado = await ProjetoModel.findByIdAndUpdate(projectId, { titulo, resumo, banner, tecnologiasUsadas })
+
+
+            if (projetoAtualizado) {
+                res.json({ mensagem: 'Projeto atualizado com sucesso.' });
+            } else {
+                res.status(404).json({ mensagem: 'Projeto não encontrado.' });
+            }
+        }
+
+        catch (error) {
+            console.error('Erro ao atualizar projeto:', error);
+            res.status(500).json({ mensagem: 'Erro interno do servidor.' });
+        }
+    }
+
     async deletarProjeto(req, res) {
         const { projetoId } = req.params;
 
