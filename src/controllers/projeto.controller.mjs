@@ -2,12 +2,13 @@ import ProjetoModel from "../models/projeto.model.mjs";
 import projetoService from "../services/projeto.service.mjs";
 
 class ProjetoController {
+
     async like(req, res) {
         const { projetoId } = req.params;
         const { usuarioAnonimoId } = req.body;
 
         try {
-            const projeto = await projetoService.darLike(projetoId, usuarioAnonimoId);
+            const projeto = await projetoService.like(projetoId, usuarioAnonimoId);
             res.json(projeto);
         } catch (error) {
             console.error('Erro ao dar like:', error);
@@ -32,7 +33,7 @@ class ProjetoController {
         const { titulo, resumo, banner, tecnologiasUsadas } = req.body;
 
         try {
-            const novoProjeto = new Projeto({
+            const novoProjeto = new ProjetoModel({
                 titulo,
                 resumo,
                 banner,
@@ -54,7 +55,7 @@ class ProjetoController {
         const { projetoId } = req.params;
 
         try {
-            const projetoRemovido = await ProjetoModel.findByIdAndRemove(projetoId);
+            const projetoRemovido = await ProjetoModel.findByIdAndDelete(projetoId);
 
             if (projetoRemovido) {
                 res.json({ mensagem: 'Projeto removido com sucesso.' });
@@ -82,7 +83,6 @@ class ProjetoController {
         const { projetoId } = req.params;
 
         try {
-            // Busque um projeto específico pelo ID no banco de dados
             const projeto = await ProjetoModel.findById(projetoId);
 
             if (projeto) {

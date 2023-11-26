@@ -31,16 +31,14 @@ const projetoSchema = new mongoose.Schema({
         {
             usuarioAnonimoId: {
                 type: String,
-                required: true,
             },
         },
     ],
 
     compartilhamentos: [
         {
-            anonymousUserId: {
+            usuarioAnonimoId: {
                 type: String,
-                required: true,
             },
         },
     ],
