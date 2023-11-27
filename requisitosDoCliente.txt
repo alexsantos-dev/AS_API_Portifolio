@@ -1,6 +1,14 @@
+// No portifólio
+
+1 - Tour para apresentação do portifólio
+2 - Links para redes de contato
+3 - Botão de voltar para o inicio
+4 - Navegação e animações suaves
+
 // Nos cards dos projetos 
 
 1 - Adicionar e remover like
 2 - Compartilhar
 3 - Acessar o projeto em funcionamento
 4 - Acessar repositórios (Frontend e Backend)
+5 - Opção para ordenar projetos: "Mais recente (data de postagem)" e "Mais relevante(likes+compartilhamentos)"
