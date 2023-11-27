@@ -1,6 +1,7 @@
 import express from 'express';
 import projetoController from '../controllers/projeto.controller.mjs';
 
+
 const router = express.Router();
 
 router.get('/', projetoController.buscarTodosProjetos)

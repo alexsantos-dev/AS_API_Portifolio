@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+mongoose.set('debug', true)
+
 const connectDatabase = async () => {
     console.log("Aguardando conexão...")
     try {

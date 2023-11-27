@@ -32,6 +32,10 @@ class ProjetoController {
     async criarProjeto(req, res) {
         const { titulo, resumo, banner, tecnologiasUsadas } = req.body;
 
+        if (typeof ({ titulo, resumo, banner, tecnologiasUsadas }) !== String) {
+            res.status(400).send({ message: "Por favor, envie somentes campos do tipo String" })
+        }
+
         try {
             const novoProjeto = new ProjetoModel({
                 titulo,
@@ -54,14 +58,18 @@ class ProjetoController {
     async atualizarProjeto(req, res) {
 
         try {
-            const { projectId } = req.params
+            const { projetoId } = req.params
             const { titulo, resumo, banner, tecnologiasUsadas } = req.body
 
             if (!titulo && !resumo && !banner && !tecnologiasUsadas) {
                 res.status(400).send({ message: "Envie pelo menos um campo para efetuar a atualização." })
             }
 
-            const projetoAtualizado = await ProjetoModel.findByIdAndUpdate(projectId, { titulo, resumo, banner, tecnologiasUsadas })
+            if (typeof (projetoId) !== String) {
+                res.status(400).send({ message: "Por favor, envie somentes campos do tipo String" })
+            }
+
+            const projetoAtualizado = await ProjetoModel.findByIdAndUpdate(projetoId, { titulo, resumo, banner, tecnologiasUsadas })
 
 
             if (projetoAtualizado) {
