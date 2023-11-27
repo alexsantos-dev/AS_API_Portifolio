@@ -1,5 +1,10 @@
 import mongoose from "mongoose";
 
+const DataAtualFormatada = () => {
+    const dataAtual = Date.now()
+    return FormData(dataAtual.toLocaleString('pt-BR'), 'dd-mm-aa')
+}
+
 const projetoSchema = new mongoose.Schema({
 
     titulo: {
@@ -18,8 +23,8 @@ const projetoSchema = new mongoose.Schema({
     },
 
     dataDePostagem: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        default: DataAtualFormatada,
     },
 
     tecnologiasUsadas: {

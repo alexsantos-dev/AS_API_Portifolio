@@ -5,11 +5,11 @@ const router = express.Router();
 
 router.get('/', projetoController.buscarTodosProjetos)
 
+router.get('/recentes', projetoController.projetoMaisRecente)
+
+router.get('/relevantes', projetoController.projetoMaisRelevante)
+
 router.get('/:projetoId', projetoController.buscarUmProjeto)
-
-// router.get('/', projetoController.projetosMaisRelevantes)
-
-// router.get('/recentes', projetoController.projetosMaisRecentes)
 
 router.post('/', projetoController.criarProjeto)
 

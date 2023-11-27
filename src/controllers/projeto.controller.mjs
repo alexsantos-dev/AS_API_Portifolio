@@ -32,11 +32,12 @@ class ProjetoController {
         const { titulo, resumo, banner, tecnologiasUsadas } = req.body;
 
         try {
-            const novoProjeto = new ProjetoModel({
+            const novoProjeto = await ProjetoModel.create({
                 titulo,
                 resumo,
                 banner,
                 tecnologiasUsadas,
+                dataDePostagem: new Date()
             });
 
             const projetoSalvo = await novoProjeto.save();
@@ -126,23 +127,18 @@ class ProjetoController {
 
     async projetoMaisRecente(req, res) {
         try {
-            const projetos = await ProjetoModel.find().sort({ dataDePostagem: -1 })
-            res.json(projetos)
-        }
-
-        catch (error) {
+            const projetos = await ProjetoModel.find().sort({ dataDePostagem: -1 });
+            res.json(projetos);
+        } catch (error) {
             console.error('Erro ao buscar projetos mais recentes:', error);
             res.status(500).json({ mensagem: 'Erro interno do servidor.' });
-
         }
     }
 
     async projetoMaisRelevante(req, res) {
         try {
-            const { projetoId } = req.params
-            const projeto = await ProjetoModel.findById(projetoId);
-            projeto.relevancia = projeto.likes.length + projeto.compartilhamentos.length;
-            await projeto.save();
+            const projeto = await ProjetoModel.find().sort({ relevancia: -1 });
+            res.json(projeto)
         }
 
         catch (error) {
