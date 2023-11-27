@@ -32,10 +32,6 @@ class ProjetoController {
     async criarProjeto(req, res) {
         const { titulo, resumo, banner, tecnologiasUsadas } = req.body;
 
-        if (typeof ({ titulo, resumo, banner, tecnologiasUsadas }) !== String) {
-            res.status(400).send({ message: "Por favor, envie somentes campos do tipo String" })
-        }
-
         try {
             const novoProjeto = new ProjetoModel({
                 titulo,
