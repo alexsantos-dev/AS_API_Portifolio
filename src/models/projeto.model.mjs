@@ -42,6 +42,12 @@ const projetoSchema = new mongoose.Schema({
             },
         },
     ],
+
+
+    relevancia: {
+        type: Number,
+        default: 0,
+    }
 });
 
 const ProjetoModel = mongoose.model("Projeto", projetoSchema)

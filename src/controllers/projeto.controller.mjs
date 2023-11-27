@@ -129,7 +129,34 @@ class ProjetoController {
             res.status(500).json({ mensagem: 'Erro interno do servidor.' });
         }
     }
-}
 
+    async projetoMaisRecente(req, res) {
+        try {
+            const projetos = await ProjetoModel.find().sort({ dataDePostagem: -1 })
+            res.json(projetos)
+        }
+
+        catch (error) {
+            console.error('Erro ao buscar projetos mais recentes:', error);
+            res.status(500).json({ mensagem: 'Erro interno do servidor.' });
+
+        }
+    }
+
+    async projetoMaisRelevante(req, res) {
+        try {
+            const { projetoId } = req.params
+            const projeto = await ProjetoModel.findById(projetoId);
+            projeto.relevancia = projeto.likes.length + projeto.compartilhamentos.length;
+            await projeto.save();
+        }
+
+        catch (error) {
+            console.error('Erro ao buscar projetos mais relevantes:', error);
+            res.status(500).json({ mensagem: 'Erro interno do servidor.' });
+
+        }
+    }
+}
 const projetoController = new ProjetoController();
 export default projetoController;
