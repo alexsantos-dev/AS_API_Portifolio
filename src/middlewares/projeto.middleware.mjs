@@ -1,10 +1,12 @@
 import ProjetoModel from "../models/projeto.model.mjs";
+import projetoService from "../services/projeto.service.mjs";
 
 class ProjetoMiddlewares {
     async relevancia(req, res, next) {
         try {
             const projeto = await ProjetoModel.findById(req.params.projetoId)
-            projeto.relevancia = projeto.likes.length + projeto.compartilhamentos.length
+
+            projeto.relevancia += projeto.likes.length + projeto.compartilhamentos.length
             await projeto.save()
         }
         catch {

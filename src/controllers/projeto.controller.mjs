@@ -18,10 +18,9 @@ class ProjetoController {
 
     async compartilhar(req, res) {
         const { projetoId } = req.params;
-        const { usuarioAnonimoId } = req.body;
 
         try {
-            const projeto = await projetoService.compartilhar(projetoId, usuarioAnonimoId);
+            const projeto = await projetoService.compartilhar(projetoId);
             res.json(projeto);
         } catch (error) {
             console.error('Erro ao compartilhar:', error);
@@ -102,7 +101,6 @@ class ProjetoController {
         try {
             const projetos = await ProjetoModel.find();
             res.json(projetos);
-
         } catch (error) {
             console.error('Erro ao buscar todos os projetos:', error);
             res.status(500).json({ mensagem: 'Erro interno do servidor.' });

@@ -1,6 +1,5 @@
 import express from 'express';
 import projetoController from '../controllers/projeto.controller.mjs';
-import projetoMiddlewares from '../middlewares/projeto.middleware.mjs';
 
 const router = express.Router();
 
@@ -18,8 +17,8 @@ router.delete('/:projetoId', projetoController.deletarProjeto)
 
 router.patch('/:projectId', projetoController.atualizarProjeto)
 
-router.patch('/like/:projetoId', projetoMiddlewares.relevancia, projetoController.like);
+router.patch('/like/:projetoId', projetoController.like);
 
-router.patch('/compartilhar/:projetoId', projetoMiddlewares.relevancia, projetoController.compartilhar);
+router.patch('/compartilhar/:projetoId', projetoController.compartilhar);
 
 export default router;

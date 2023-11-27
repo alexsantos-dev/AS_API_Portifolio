@@ -35,14 +35,10 @@ const projetoSchema = new mongoose.Schema({
         },
     ],
 
-    compartilhamentos: [
-        {
-            usuarioAnonimoId: {
-                type: String,
-            },
-        },
-    ],
-
+    compartilhamentos: {
+        type: Number,
+        default: 0,
+    },
 
     relevancia: {
         type: Number,

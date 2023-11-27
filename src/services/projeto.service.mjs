@@ -5,23 +5,25 @@ class ProjetoService {
 
     async like(projetoId, usuarioAnonimoId) {
         const projeto = await ProjetoModel.findById(projetoId);
+        const likeAtivo = projeto.likes.some(like => like.usuarioAnonimoId === usuarioAnonimoId);
 
-        const index = projeto.likes.findIndex(like => like.usuarioAnonimoId === usuarioAnonimoId);
+        if (likeAtivo) {
+            projeto.likes = projeto.likes.filter(like => like.usuarioAnonimoId !== like.usuarioAnonimoId);
+            projeto.relevancia--
 
-        if (index === -1) {
-            projeto.likes.push({ usuarioAnonimoId });
         } else {
-            projeto.likes.splice(index, 1);
+            projeto.likes.push({ usuarioAnonimoId })
+            projeto.relevancia++
         }
-
+        console.log(projeto.likes.length)
         return projeto.save();
     }
 
-    async compartilhar(projetoId, usuarioAnonimoId) {
+    async compartilhar(projetoId) {
         const projeto = await ProjetoModel.findById(projetoId);
 
-        projeto.compartilhamentos.push({ usuarioAnonimoId });
-
+        projeto.compartilhamentos++;
+        projeto.relevancia++
         return projeto.save();
     }
 }
