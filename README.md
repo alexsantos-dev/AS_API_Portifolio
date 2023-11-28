@@ -1,3 +1,3 @@
-# AS_API_Portifolio
+# Express.js + MongoDB + Node
 
 Api dedicada ao meu portifólio pessoal
