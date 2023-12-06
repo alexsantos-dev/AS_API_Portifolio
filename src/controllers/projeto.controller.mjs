@@ -29,7 +29,7 @@ class ProjetoController {
     }
 
     async criarProjeto(req, res) {
-        const { titulo, resumo, banner, tecnologiasUsadas, deploy } = req.body;
+        const { titulo, resumo, banner, tecnologiasUsadas, repositorio, deploy } = req.body;
 
         try {
             const novoProjeto = await ProjetoModel.create({

@@ -32,6 +32,11 @@ const projetoSchema = new mongoose.Schema({
         required: true,
     },
 
+    repositorio: {
+        type: String,
+        required: true,
+    },
+
     deploy: {
         type: String,
         required: true,
