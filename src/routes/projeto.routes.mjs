@@ -1,7 +1,17 @@
 import express from 'express';
 import projetoController from '../controllers/projeto.controller.mjs';
+import cors from "cors"
 
 const router = express.Router();
+
+const corsOptions = {
+    origin: 'http://localhost:5173',
+    methods: 'GET,HEAD,PATCH,PUT,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
+
+router.use(cors(corsOptions));
 
 router.get('/', projetoController.buscarTodosProjetos)
 
