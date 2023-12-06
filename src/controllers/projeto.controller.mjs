@@ -139,8 +139,8 @@ class ProjetoController {
 
     async projetoMaisRelevante(req, res) {
         try {
-            const projeto = await ProjetoModel.find().sort({ relevancia: -1 });
-            res.json(projeto)
+            const projetos = await ProjetoModel.find().sort({ relevancia: -1 });
+            res.json(projetos)
         }
 
         catch (error) {
