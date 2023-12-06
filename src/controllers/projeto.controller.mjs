@@ -37,6 +37,7 @@ class ProjetoController {
                 resumo,
                 banner,
                 tecnologiasUsadas,
+                repositorio,
                 deploy,
                 dataDePostagem: new Date()
             });
