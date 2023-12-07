@@ -8,14 +8,17 @@ class ProjetoController {
         const { usuarioAnonimoId } = req.body;
 
         try {
-            const projeto = await projetoService.like(projetoId, usuarioAnonimoId);
-            res.json(projeto);
+            const { projeto, usuarioCurtiu } = await projetoService.like(
+                projetoId,
+                usuarioAnonimoId
+            );
+
+            res.json({ projeto, usuarioCurtiu });
         } catch (error) {
             console.error('Erro ao dar like:', error);
             res.status(500).json({ mensagem: 'Erro interno do servidor.' });
         }
     }
-
     async compartilhar(req, res) {
         const { projetoId } = req.params;
 
