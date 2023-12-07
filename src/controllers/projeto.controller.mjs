@@ -62,11 +62,6 @@ class ProjetoController {
             if (!titulo && !resumo && !banner && !tecnologiasUsadas && !repositorio && !deploy) {
                 res.status(400).send({ message: "Envie pelo menos um campo para efetuar a atualização." })
             }
-
-            if (typeof (projetoId) !== String) {
-                res.status(400).send({ message: "Por favor, envie somentes campos do tipo String" })
-            }
-
             const projetoAtualizado = await ProjetoModel.findByIdAndUpdate(projetoId, { titulo, resumo, banner, tecnologiasUsadas, repositorio, deploy })
 
 
