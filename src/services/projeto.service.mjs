@@ -4,7 +4,10 @@ import ProjetoModel from "../models/projeto.model.mjs"
 class ProjetoService {
 
     async like(projetoId, usuarioAnonimoId) {
+        console.log('Operação de Like Iniciada');
+        console.log('ID do Projeto:', projetoId);
         const projeto = await ProjetoModel.findById(projetoId);
+        console.log('Projeto encontrado:', projeto);
         const likeAtivo = projeto.likes.some(like => like.usuarioAnonimoId === usuarioAnonimoId);
 
         if (likeAtivo) {
@@ -17,6 +20,7 @@ class ProjetoService {
         }
         console.log(projeto.likes.length)
         return projeto.save();
+        console.log('Operação de Like Concluída');
     }
 
     async compartilhar(projetoId) {
