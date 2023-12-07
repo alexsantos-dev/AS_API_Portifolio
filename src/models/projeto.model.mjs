@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const DataAtualFormatada = () => {
     const dataAtual = Date.now()
-    return FormData(dataAtual.toLocaleString('pt-BR'), 'dd-mm-aa')
+    return (dataAtual.toLocaleString('pt-BR'), 'dd-mm-aa')
 }
 
 const projetoSchema = new mongoose.Schema({

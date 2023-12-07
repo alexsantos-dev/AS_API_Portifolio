@@ -32,7 +32,7 @@ router.post('/', projetoController.criarProjeto)
 
 router.delete('/:projetoId', projetoController.deletarProjeto)
 
-router.patch('/:projectId', projetoController.atualizarProjeto)
+router.patch('/:projetoId', projetoController.atualizarProjeto)
 
 router.patch('/like/:projetoId', projetoController.like);
 
