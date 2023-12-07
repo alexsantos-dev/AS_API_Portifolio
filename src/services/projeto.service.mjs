@@ -8,7 +8,7 @@ class ProjetoService {
         const likeAtivo = projeto.likes.some(like => like.usuarioAnonimoId === usuarioAnonimoId);
 
         if (likeAtivo) {
-            projeto.likes = projeto.likes.filter(like => like.usuarioAnonimoId !== like.usuarioAnonimoId);
+            projeto.likes = projeto.likes.filter(like => like.usuarioAnonimoId !== usuarioAnonimoId);
             projeto.relevancia--
 
         } else {
