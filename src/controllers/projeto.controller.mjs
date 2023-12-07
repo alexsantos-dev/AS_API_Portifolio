@@ -57,9 +57,9 @@ class ProjetoController {
 
         try {
             const { projetoId } = req.params
-            const { titulo, resumo, banner, tecnologiasUsadas } = req.body
+            const { titulo, resumo, banner, tecnologiasUsadas, repositorio, deploy } = req.body
 
-            if (!titulo && !resumo && !banner && !tecnologiasUsadas) {
+            if (!titulo && !resumo && !banner && !tecnologiasUsadas && !repositorio && !deploy) {
                 res.status(400).send({ message: "Envie pelo menos um campo para efetuar a atualização." })
             }
 
@@ -67,7 +67,7 @@ class ProjetoController {
                 res.status(400).send({ message: "Por favor, envie somentes campos do tipo String" })
             }
 
-            const projetoAtualizado = await ProjetoModel.findByIdAndUpdate(projetoId, { titulo, resumo, banner, tecnologiasUsadas })
+            const projetoAtualizado = await ProjetoModel.findByIdAndUpdate(projetoId, { titulo, resumo, banner, tecnologiasUsadas, repositorio, deploy })
 
 
             if (projetoAtualizado) {
