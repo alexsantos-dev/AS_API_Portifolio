@@ -5,18 +5,11 @@ import cors from "cors"
 const router = express.Router();
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'http://192.168.100.232:5173'],
     methods: 'GET,HEAD,PATCH,PUT,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
 };
-
-// const corsOptions2 = {
-//     origin: 'http://192.168.100.232:5173/',
-//     methods: 'GET,HEAD,PATCH,PUT,POST,DELETE',
-//     credentials: true,
-//     optionsSuccessStatus: 204,
-// };
 
 router.use(cors(corsOptions));
 
