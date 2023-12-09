@@ -42,15 +42,22 @@ const projetoSchema = new mongoose.Schema({
         required: true,
     },
 
+    compartilhamentos: {
+        type: Number,
+        default: 0,
+    },
+
+    acessRepositorio: {
+        type: Number,
+        default: 0,
+    },
+
     visualizacoes: {
         type: Number,
         default: 0,
     },
 
-    compartilhamentos: {
-        type: Number,
-        default: 0,
-    },
+
 
     relevancia: {
         type: Number,

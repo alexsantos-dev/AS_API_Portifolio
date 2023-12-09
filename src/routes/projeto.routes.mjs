@@ -29,7 +29,7 @@ router.patch('/:projetoId', projetoController.atualizarProjeto)
 
 router.patch('/compartilhar/:projetoId', projetoController.compartilhar);
 
-router.patch('/repositorio/:projetoId', projetoController.repositorio);
+router.patch('/acessRepositorio/:projetoId', projetoController.acessRepositorio);
 
 router.patch('/visualizacoes/:projetoId', projetoController.visualizacoes);
 

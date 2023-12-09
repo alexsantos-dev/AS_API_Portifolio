@@ -11,10 +11,10 @@ class ProjetoService {
         return projeto.save();
     }
 
-    async repositorio(projetoId) {
+    async acessRepositorio(projetoId) {
         const projeto = await ProjetoModel.findById(projetoId);
 
-        projeto.repositorio++;
+        projeto.acessRepositorio++;
         projeto.relevancia++
         return projeto.save();
     }

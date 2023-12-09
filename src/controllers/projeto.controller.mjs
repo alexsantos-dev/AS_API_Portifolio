@@ -3,11 +3,11 @@ import projetoService from "../services/projeto.service.mjs";
 
 class ProjetoController {
 
-    async repositorio(req, res) {
+    async acessRepositorio(req, res) {
         const { projetoId } = req.params;
 
         try {
-            const projeto = await projetoService.repositorio(projetoId);
+            const projeto = await projetoService.acessRepositorio(projetoId);
             res.json(projeto)
         }
 
