@@ -42,13 +42,10 @@ const projetoSchema = new mongoose.Schema({
         required: true,
     },
 
-    likes: [
-        {
-            usuarioAnonimoId: {
-                type: String,
-            },
-        },
-    ],
+    visualizacoes: {
+        type: Number,
+        default: 0,
+    },
 
     compartilhamentos: {
         type: Number,

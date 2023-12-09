@@ -27,7 +27,8 @@ router.delete('/:projetoId', projetoController.deletarProjeto)
 
 router.patch('/:projetoId', projetoController.atualizarProjeto)
 
-router.patch('/like/:projetoId', projetoController.like);
+router.patch('/visualizacoes/:projetoId', projetoController.visualizacoes);
+
 
 router.patch('/compartilhar/:projetoId', projetoController.compartilhar);
 

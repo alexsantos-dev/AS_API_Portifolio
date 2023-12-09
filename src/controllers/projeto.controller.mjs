@@ -3,22 +3,21 @@ import projetoService from "../services/projeto.service.mjs";
 
 class ProjetoController {
 
-    async like(req, res) {
+    async visualizacoes(req, res) {
         const { projetoId } = req.params;
-        const { usuarioAnonimoId } = req.body;
 
         try {
-            const { projeto, usuarioCurtiu } = await projetoService.like(
-                projetoId,
-                usuarioAnonimoId
-            );
+            const projeto = await projetoService.visualizacoes(projetoId);
+            res.json(projeto)
+        }
 
-            res.json({ projeto, usuarioCurtiu });
-        } catch (error) {
-            console.error('Erro ao dar like:', error);
+        catch (error) {
+            console.error('Erro ao compartilhar:', error);
             res.status(500).json({ mensagem: 'Erro interno do servidor.' });
         }
     }
+
+
     async compartilhar(req, res) {
         const { projetoId } = req.params;
 
