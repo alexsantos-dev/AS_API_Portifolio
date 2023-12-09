@@ -11,6 +11,14 @@ class ProjetoService {
         return projeto.save();
     }
 
+    async repositorio(projetoId) {
+        const projeto = await ProjetoModel.findById(projetoId);
+
+        projeto.repositorio++;
+        projeto.relevancia++
+        return projeto.save();
+    }
+
     async compartilhar(projetoId) {
         const projeto = await ProjetoModel.findById(projetoId);
 

@@ -3,6 +3,22 @@ import projetoService from "../services/projeto.service.mjs";
 
 class ProjetoController {
 
+    async repositorio(req, res) {
+        const { projetoId } = req.params;
+
+        try {
+            const projeto = await projetoService.repositorio(projetoId);
+            res.json(projeto)
+        }
+
+        catch (error) {
+            console.error('Erro ao compartilhar:', error);
+            res.status(500).json({ mensagem: 'Erro interno do servidor.' });
+        }
+    }
+
+
+
     async visualizacoes(req, res) {
         const { projetoId } = req.params;
 

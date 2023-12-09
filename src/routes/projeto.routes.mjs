@@ -27,9 +27,10 @@ router.delete('/:projetoId', projetoController.deletarProjeto)
 
 router.patch('/:projetoId', projetoController.atualizarProjeto)
 
-router.patch('/visualizacoes/:projetoId', projetoController.visualizacoes);
-
-
 router.patch('/compartilhar/:projetoId', projetoController.compartilhar);
+
+router.patch('/repositorio/:projetoId', projetoController.repositorio);
+
+router.patch('/visualizacoes/:projetoId', projetoController.visualizacoes);
 
 export default router;
