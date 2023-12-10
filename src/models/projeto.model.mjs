@@ -22,6 +22,11 @@ const projetoSchema = new mongoose.Schema({
         required: true,
     },
 
+    status: {
+        type: String,
+        default: "desenvolvimento",
+    },
+
     dataDePostagem: {
         type: String,
         default: DataAtualFormatada,
@@ -56,8 +61,6 @@ const projetoSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-
-
 
     relevancia: {
         type: Number,
