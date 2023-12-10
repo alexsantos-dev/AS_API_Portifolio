@@ -47,13 +47,14 @@ class ProjetoController {
     }
 
     async criarProjeto(req, res) {
-        const { titulo, resumo, banner, tecnologiasUsadas, repositorio, deploy } = req.body;
+        const { titulo, resumo, banner, status, tecnologiasUsadas, repositorio, deploy } = req.body;
 
         try {
             const novoProjeto = await ProjetoModel.create({
                 titulo,
                 resumo,
                 banner,
+                status,
                 tecnologiasUsadas,
                 repositorio,
                 deploy,
@@ -75,12 +76,12 @@ class ProjetoController {
 
         try {
             const { projetoId } = req.params
-            const { titulo, resumo, banner, tecnologiasUsadas, repositorio, deploy } = req.body
+            const { titulo, resumo, banner, status, tecnologiasUsadas, repositorio, deploy } = req.body
 
-            if (!titulo && !resumo && !banner && !tecnologiasUsadas && !repositorio && !deploy) {
+            if (!titulo && !resumo && !banner && !status && !tecnologiasUsadas && !repositorio && !deploy) {
                 res.status(400).send({ message: "Envie pelo menos um campo para efetuar a atualização." })
             }
-            const projetoAtualizado = await ProjetoModel.findByIdAndUpdate(projetoId, { titulo, resumo, banner, tecnologiasUsadas, repositorio, deploy })
+            const projetoAtualizado = await ProjetoModel.findByIdAndUpdate(projetoId, { titulo, resumo, banner, status, tecnologiasUsadas, repositorio, deploy })
 
 
             if (projetoAtualizado) {
