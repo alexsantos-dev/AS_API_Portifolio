@@ -5,7 +5,7 @@ import cors from "cors"
 const router = express.Router();
 
 const corsOptions = {
-    origin: ['http://localhost:5173', 'http://192.168.100.232:5173', 'https://alexsantos-fullstack.vercel.app', 'https://api-portifolio-ohio-br.onrender.com'],
+    origin: ['http://localhost:5173', 'http://192.168.100.232:5173', 'https://alexsantos-fullstack.vercel.app'],
     methods: 'GET,HEAD,PATCH,PUT,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
