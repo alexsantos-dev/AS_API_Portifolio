@@ -13,7 +13,7 @@ const corsOptions = {
 
 router.use(cors(corsOptions));
 
-router.get('/', projetoController.buscarTodosProjetos)
+router.get(projetoController.buscarTodosProjetos)
 
 router.get('/recentes', projetoController.projetoMaisRecente)
 
@@ -21,7 +21,7 @@ router.get('/relevantes', projetoController.projetoMaisRelevante)
 
 router.get('/:projetoId', projetoController.buscarUmProjeto)
 
-router.post('/', projetoController.criarProjeto)
+router.post(projetoController.criarProjeto)
 
 router.delete('/:projetoId', projetoController.deletarProjeto)
 

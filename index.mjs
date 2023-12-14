@@ -10,6 +10,6 @@ const porta = process.env.PORT || 3000
 
 conectDatabase()
 app.use(express.json())
-app.use('/projetos', ProjetoRouter);
+app.use('/', ProjetoRouter);
 
 app.listen(porta, () => console.log(`Servidor rodando na porta: ${porta}`))
