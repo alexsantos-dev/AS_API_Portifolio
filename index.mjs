@@ -15,7 +15,7 @@ app.use('/', ProjetoRouter);
 
 
 app.get('/', (req, res) => {
-    res.send('<script>window.open("https://api-portifolio-ohio-br.onrender.com/recentes", "_blank");</script>');
+    res.send('<script>window.open("https://api-portifolio-ohio-br.onrender.com/recentes", "_self");</script>');
 })
 
 app.listen(porta, () => console.log(`Servidor rodando na porta: ${porta}`))
