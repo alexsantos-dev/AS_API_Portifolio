@@ -15,8 +15,7 @@ app.use('/', ProjetoRouter);
 
 
 app.get('/', (req, res) => {
-    // Envia o script JavaScript para abrir uma nova aba e acessar o endereço especificado
-    res.send('<script>window.open("https://https://api-portifolio-ohio-br.onrender.com/recentes", "_blank");</script>');
+    res.send('<script>window.open("https://api-portifolio-ohio-br.onrender.com/recentes", "_blank");</script>');
 })
 
 app.listen(porta, () => console.log(`Servidor rodando na porta: ${porta}`))
