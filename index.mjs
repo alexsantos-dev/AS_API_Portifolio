@@ -19,16 +19,16 @@ app.get('/', (req, res) => {
 })
 
 async function main() {
-    const accessUrlAndPrintMessage = async () => {
+    const accessUrl = async () => {
         try {
             await axios.get('https://api-portifolio-ohio-br.onrender.com/');
         } catch (error) {
             console.error(error.message);
-            setInterval(accessUrlAndPrintMessage, 5000);
+            setInterval(accessUrl, 5000);
         }
     };
 
-    setInterval(accessUrlAndPrintMessage, 10000);
+    setInterval(accessUrl, 600000);
 
 
     await new Promise(() => { });
