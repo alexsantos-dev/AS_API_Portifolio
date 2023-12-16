@@ -22,6 +22,7 @@ async function main() {
     const accessUrl = async () => {
         try {
             await axios.get('https://api-portifolio-ohio-br.onrender.com/');
+            await axios.get("https://alexsantos-fullstack.vercel.app/");
         } catch (error) {
             console.error(error.message);
             setInterval(accessUrl, 5000);
