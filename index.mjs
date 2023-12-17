@@ -35,24 +35,4 @@ async function api() {
 }
 
 api();
-
-async function front() {
-    const accessUrl = async () => {
-        try {
-            await axios.get("https://alexsantos-fullstack.vercel.app/");
-        } catch (error) {
-            console.error(error.message);
-            setInterval(accessUrl, 5000);
-        }
-    };
-
-    setInterval(accessUrl, 900000);
-
-
-    await new Promise(() => { });
-}
-
-front();
-
-
 app.listen(porta, () => console.log(`Servidor rodando na porta: ${porta}`))
