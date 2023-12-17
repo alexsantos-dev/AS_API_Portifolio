@@ -34,6 +34,8 @@ async function api() {
     await new Promise(() => { });
 }
 
+api();
+
 async function front() {
     const accessUrl = async () => {
         try {
@@ -50,7 +52,6 @@ async function front() {
     await new Promise(() => { });
 }
 
-api();
 front();
 
 
