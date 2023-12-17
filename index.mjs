@@ -18,10 +18,25 @@ app.get('/', (req, res) => {
     res.send('<script>window.open("https://api-portifolio-ohio-br.onrender.com/recentes", "_self");</script>');
 })
 
-async function main() {
+async function api() {
     const accessUrl = async () => {
         try {
             await axios.get('https://api-portifolio-ohio-br.onrender.com/');
+        } catch (error) {
+            console.error(error.message);
+            setInterval(accessUrl, 5000);
+        }
+    };
+
+    setInterval(accessUrl, 900000);
+
+
+    await new Promise(() => { });
+}
+
+async function front() {
+    const accessUrl = async () => {
+        try {
             await axios.get("https://alexsantos-fullstack.vercel.app/");
         } catch (error) {
             console.error(error.message);
@@ -35,6 +50,8 @@ async function main() {
     await new Promise(() => { });
 }
 
-main();
+api();
+front();
+
 
 app.listen(porta, () => console.log(`Servidor rodando na porta: ${porta}`))
