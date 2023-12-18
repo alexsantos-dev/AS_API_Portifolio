@@ -143,7 +143,7 @@ class ProjetoController {
 
     async projetoMaisRecente(req, res) {
         try {
-            const projetos = await ProjetoModel.find().sort({ dataDePostagem: -1 });
+            const projetos = await ProjetoModel.find().sort({ _id: -1 });
             res.json(projetos);
         } catch (error) {
             console.error('Erro ao buscar projetos mais recentes:', error);
