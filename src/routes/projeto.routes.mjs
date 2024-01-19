@@ -13,7 +13,7 @@ const corsOptions = {
 
 router.use(cors(corsOptions));
 
-router.get('/', projetoController.buscarTodosProjetos)
+router.get('/projetos', projetoController.buscarTodosProjetos)
 
 router.get('/recentes', projetoController.projetoMaisRecente)
 
